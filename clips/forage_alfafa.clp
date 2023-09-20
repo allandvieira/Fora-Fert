@@ -1,23 +1,25 @@
 (defrule forage_alfaca
-    (bind ?phosphorusValue
-        (cond
-            ((eq ?soilPLevel "very_low") 195)
-            ((eq ?soilPLevel "low") 135)
-            ((eq ?soilPLevel "medium") 125)
-            ((eq ?soilPLevel "high") 85)
-            ((eq ?soilPLevel "very_high") 0)
-        )
-    )
+    (forage "alfafa")
 
-    (bind ?potassiumValue
-        (cond
-            ((eq ?soilKLevel "very_low") 330)
-            ((eq ?soilKLevel "low") 290)
-            ((eq ?soilKLevel "medium") 280)
-            ((eq ?soilKLevel "high") 250)
-            ((eq ?soilKLevel "very_high") 0)
-        )
-    )
+    =>
+
+    ?f <- (p_value ?phosph)
+    (test (cond
+        ((= ?phosph "very_low") => 195)
+        ((= ?phosph "low") => 135)
+        ((= ?phosph "medium") => 125)
+        ((= ?phosph "high") => 85)
+        ((= ?phosph "very_high") => 0)
+    ))
+
+    ?f <- (k_value ?potass)
+    (test(cond
+        ((= ?potass "very_low") 330)
+        ((= ?potass "low") 290)
+        ((= ?potass "medium") 280)
+        ((= ?potass "high") 250)
+        ((= ?potass "very_high") 0)
+    ))
 
     (bind ?recommendationMessage "Reposicao de Fósforo: " ?phosphorusValue ?phosphorusUnit "Reposicao de Potássio: " ?potassiumValue ?potassiumUnit)
 )
