@@ -9,55 +9,23 @@
 
 )
 
-(deffunction n-recommendation()
-    (return
-        "
-    Reposicao de nitrogenio:\
-    
-        \
-        "
-    )
-    
-)
-
-(deffunction s-recommendation()
-    (return "
-    Reposicao de Enxofre: \
-        \
-    ")
-    
-)
-
-(deffunction b-recommendation()
-    (return "
-    Reposicao de Boro: \
-        \
-    ")
-)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; RULES:
-
-
 (defrule cool-grasses
     ?f-forage <- (forage "cool-grasses")
+
 
     =>
 
     (printout t (about))
-    (printout t (n-recommendation))
-    (printout t (s-recommendation))
-    (printout t (b-recommendation))
     (assert (header-done))
 )
 
 
 (defrule forage-cool-grasses-p
+    ?f-header-done <- (header-done)
+
     ?f-forage <- (forage "cool-grasses")
     ?f-p-value <- (p-value ?p-value)
     ?f-first-planting <- (first-planting ?first-pl)
-    ?f-header-done <- (header-done)
 
     =>
 
@@ -69,22 +37,22 @@
     then
         (if (eq ?p-value "very-low")
         then
-            (bind ?p-repl 195)
+            (bind ?p-repl 170)
         else
 
             (if (eq ?p-value "low")
             then
-                (bind ?p-repl 135)
+                (bind ?p-repl 110)
             else
 
                 (if (eq ?p-value "medium")
                 then
-                    (bind ?p-repl 125)
+                    (bind ?p-repl 100)
                 else
 
                     (if (eq ?p-value "high")
                     then
-                        (bind ?p-repl 85)
+                        (bind ?p-repl 60)
                     )
                 )
             )
@@ -92,22 +60,22 @@
     else
         (if (eq ?p-value "very-low")
         then
-            (bind ?p-repl 170)
+            (bind ?p-repl 110)
         else
 
             (if (eq ?p-value "low")
             then
-                (bind ?p-repl 150)
+                (bind ?p-repl 90)
             else
 
                 (if (eq ?p-value "medium")
                 then
-                    (bind ?p-repl 120)
+                    (bind ?p-repl 60)
                 else
 
                     (if (eq ?p-value "high")
                     then
-                        (bind ?p-repl 120)
+                        (bind ?p-repl 60)
                     )
                 )
             )
@@ -146,22 +114,22 @@
 
         (if (eq ?k-value "very-low")
         then
-            (bind ?k-repl 330)
+            (bind ?k-repl 140)
         else
 
             (if (eq ?k-value "low")
             then
-                (bind ?k-repl 290)
+                (bind ?k-repl 100)
             else
 
                 (if (eq ?k-value "medium")
                 then
-                    (bind ?k-repl 280)
+                    (bind ?k-repl 90)
                 else
 
                     (if (eq ?k-value "high")
                     then
-                        (bind ?k-repl 250)
+                        (bind ?k-repl 60)
                     )
                 )
             )
@@ -171,23 +139,23 @@
         (if (eq ?k-value "very-low")
         then
 
-            (bind ?k-repl 400)
+            (bind ?k-repl 100)
 
         else
 
             (if (eq ?k-value "low")
             then
-                (bind ?k-repl 380)
+                (bind ?k-repl 80)
             else
 
                 (if (eq ?k-value "medium")
                 then
-                    (bind ?k-repl 360)
+                    (bind ?k-repl 60)
                 else
 
                     (if (eq ?k-value "high")
                     then
-                        (bind ?k-repl 360)
+                        (bind ?k-repl 60)
                     )
                 )
             )
@@ -210,25 +178,25 @@
     (assert (pk-done))
 )
 
-(defrule forage-cool-grasses-liming
-    ?f-forage <- (forage "cool-grasses")
-    ?f-ph <- (ph ?ph)
-    ?f-pk <- (pk-done)
-    
-    =>
-
-    (if (< ?ph 6.0)
-    then
-        (printout t "\
-    Recomendacao de calagem: \
-            O calcario deve ser incorporado na camada de 0 a 20 cm. 
-            Quantidade: 1 SMP para pH_agua 6.5\
-            Modo de aplicacao: Incorporado (Obs.: quando a disponibilidade de P e K forem menores do que o teor critico, fazer a adubacao de correcao incorporando fertilizantes apos a calagem)\
-
-        ")
-    else
-        (printout t "\
-    Nao necessita correcao de Calagem\
-        ")
-    )
-)
+;(defrule forage-cool-grasses-liming
+;    ?f-forage <- (forage "cool-grasses")
+;    ?f-ph <- (ph ?ph)
+;    ?f-pk <- (pk-done)
+;    
+;    =>
+;
+;    (if (< ?ph 6.0)
+;    then
+;        (printout t "\
+;    Recomendacao de calagem: \
+;            O calcario deve ser incorporado na camada de 0 a 20 cm. 
+;            Quantidade: 1 SMP para pH_agua 6.5\
+;            Modo de aplicacao: Incorporado (Obs.: quando a disponibilidade de P e K forem menores do que o teor critico, fazer a adubacao de correcao incorporando fertilizantes apos a calagem)\
+;
+;        ")
+;    else
+;        (printout t "\
+;    Nao necessita correcao de Calagem\
+;        ")
+;    )
+;)

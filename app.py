@@ -16,7 +16,7 @@ def get_recommendation():
 
         soil_type = data['soiltype']
         soil_ph = data['soilph']
-        organic_matter_content_in_the_soil = data['organicmattercontentinthesoil']
+        organic_matter_content = data['organicmattercontent']
         content_p = data['p']
         content_k = data['k']
         content_ca = data['ca']
