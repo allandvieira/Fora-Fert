@@ -16,3 +16,9 @@
 
 (load "limin.clp")
 
+(load "facts.clp")
+
+(run)
+(exit)
+
+
