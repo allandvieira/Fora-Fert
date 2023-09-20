@@ -1,62 +1,28 @@
 (deffunction about()
     (return "
-    Sobre a Alfafa:\
-        A alfafa pode ser implantada sozinha ou em consorcio com outras especies forrageiras. Ela eh altamente sensivel ha acidez do solo, portanto, a calgem deve ser feita com atencao especial, considerando a quantidade e a profundidade de incorporacao do calcario. Eh crucial realizar um plantio denso e prepararr o solo adequadamente para garantir uma populacao de plantas saudaveis, capar de competir com as ervas daninhas.\
-        A longevidade da alfafa depende, em grande arte, de manutencao dos niveis apropriados de nutrientes no solo e do manejo adequado. Alem de ser usada para corte, seja para producao de feno ou fornecimento de forragem fresca, a alfafa podee ser uma opcao para pastejo, seja em cultivo exclusivo ou em consorcio com gramineas. No entanto, ao fazer isso, eh importante atender has necessidades das diferentes especies e estar ciente dos possieis riscos de timpanismo no animais.\
-        \ 
-        "
-    )
-
-)
-
-(deffunction n-recommendation()
-    (return
-        "
-    Reposicao de nitrogenio:\
-        Realizar a inoculação das sementes com o rizóbio específico. Fazer a adubação nitrogenada somente se for constatada a ineficiência da inoculação. Nesse caso, aplicar de 20 a 40 kg de N/ha após cada corte, dependendo do desenvolvimento da cultura.\
-        \
-        "
-    )
-    
-)
-
-(deffunction s-recommendation()
-    (return "
-    Reposicao de Enxofre: \
-        A cada dois anos, priorizar a aplicação de fertilizantes fosfatados que contenham S (como o superfosfato simples) ou outra fonte deste nutriente. A aplicação periódica, a cada dois anos, de 60 a 80 kg de S/ha é suficiente para atender a demanda da cultura. A reposição deste nutriente é também plenamente atendida quando são utilizados adubos orgânicos. No caso da alfafa sob exploração intensiva, a utilização de gesso agrícola pode, além de suprir S, favorecer o aprofundamento das raízes, o que é importante em situações de deficiência hídrica.\
-        \
+    Milho e sorgo para silagem\
+            O milho e o sorgo forrageiro têm sido utilizados para a produção de forragem conservada na forma de silagem, podendo constituir a base alimentar de sistemas produtivos ou utilizada de forma estratégica em sistemas pastoris. De forma geral, o milho apresenta maior produtividade (em regiões com adaptação) e qualidade superior. Por outro lado, pela capacidade de rebrote, algumas variedades de sorgo podem permitir um segundo corte. Em geral, recomenda-se a utilização de práticas de manejo para estas culturas semelhantes às utilizadas em lavouras para grãos, garantindo assim alta produtividade, alta qualidade de forragem e maior rentabilidade.\
+\
     ")
-    
+
 )
 
-(deffunction b-recommendation()
-    (return "
-    Reposicao de Boro: \
-         Aplicar via solo, 2,5 kg de B por hectare antes da semeadura, preferencialmente incorporado, repetindo esta dose anualmente, no início da primavera, a lanço em superfície. Por ser uma cultura perene, fontes de B de menor solubilidade podem ser utilizadas.\
-        \
-    ")
-)
-
-
-; imprimir recomendacoes que nao dependem de parametros, apenas alfafa
-(defrule forage-alfafa
-    ?f-forage <- (forage "alfafa")
+(defrule corn-sorghum
+    ?f-forage <- (forage "corn-sorghum")
 
     =>
 
     (printout t (about))
-    (printout t (n-recommendation))
-    (printout t (s-recommendation))
-    (printout t (b-recommendation))
     (assert (header-done))
 )
 
 
-(defrule forage-alfaca-p
-    ?f-forage <- (forage "alfafa")
+(defrule forage-corn-sorghum-p
+    ?f-header-done <- (header-done)
+
+    ?f-forage <- (forage "corn-sorghum")
     ?f-p-value <- (p-value ?p-value)
     ?f-first-planting <- (first-planting ?first-pl)
-    ?f-header-done <- (header-done)
 
     =>
 
@@ -68,22 +34,22 @@
     then
         (if (eq ?p-value "very-low")
         then
-            (bind ?p-repl 195)
+            (bind ?p-repl 220)
         else
 
             (if (eq ?p-value "low")
             then
-                (bind ?p-repl 135)
+                (bind ?p-repl 160)
             else
 
                 (if (eq ?p-value "medium")
                 then
-                    (bind ?p-repl 125)
+                    (bind ?p-repl 150)
                 else
 
                     (if (eq ?p-value "high")
                     then
-                        (bind ?p-repl 85)
+                        (bind ?p-repl 110)
                     )
                 )
             )
@@ -91,22 +57,22 @@
     else
         (if (eq ?p-value "very-low")
         then
-            (bind ?p-repl 170)
+            (bind ?p-repl 160)
         else
 
             (if (eq ?p-value "low")
             then
-                (bind ?p-repl 150)
+                (bind ?p-repl 140)
             else
 
                 (if (eq ?p-value "medium")
                 then
-                    (bind ?p-repl 120)
+                    (bind ?p-repl 110)
                 else
 
                     (if (eq ?p-value "high")
                     then
-                        (bind ?p-repl 120)
+                        (bind ?p-repl 110)
                     )
                 )
             )
@@ -128,8 +94,8 @@
 )
 
 
-(defrule forage-alfafa-k
-    ?f-forage <- (forage "alfafa")
+(defrule forage-corn-sorghum-k
+    ?f-forage <- (forage "corn-sorghum")
     ?f-k-value <- (k-value ?k-value)
     ?f-fist-planting <- (first-planting ?first-pl)
     ?f-header-done <- (header-done)
@@ -145,22 +111,22 @@
 
         (if (eq ?k-value "very-low")
         then
-            (bind ?k-repl 330)
+            (bind ?k-repl 300)
         else
 
             (if (eq ?k-value "low")
             then
-                (bind ?k-repl 290)
+                (bind ?k-repl 260)
             else
 
                 (if (eq ?k-value "medium")
                 then
-                    (bind ?k-repl 280)
+                    (bind ?k-repl 250)
                 else
 
                     (if (eq ?k-value "high")
                     then
-                        (bind ?k-repl 250)
+                        (bind ?k-repl 220)
                     )
                 )
             )
@@ -170,23 +136,23 @@
         (if (eq ?k-value "very-low")
         then
 
-            (bind ?k-repl 400)
+            (bind ?k-repl 260)
 
         else
 
             (if (eq ?k-value "low")
             then
-                (bind ?k-repl 380)
+                (bind ?k-repl 240)
             else
 
                 (if (eq ?k-value "medium")
                 then
-                    (bind ?k-repl 360)
+                    (bind ?k-repl 220)
                 else
 
                     (if (eq ?k-value "high")
                     then
-                        (bind ?k-repl 360)
+                        (bind ?k-repl 220)
                     )
                 )
             )
@@ -209,25 +175,80 @@
     (assert (pk-done))
 )
 
-(defrule forage-alfafa-liming
-    ?f-forage <- (forage "alfafa")
-    ?f-ph <- (ph ?ph)
-    ?f-pk <- (pk-done)
-    
+(defrule corn-sorghum-n
+    ?f-header-done <- (header-done)
+
+    ?f-forage <- (forage "corn-sorghum")
+    ?f-organic-matter <- (organic-matter ?organic-matter)
+    ?f-use-type <- (use-type ?use-type)
+
     =>
 
-    (if (< ?ph 6.0)
-    then
-        (printout t "\
-    Recomendacao de calagem: \
-            O calcario deve ser incorporado na camada de 0 a 20 cm. 
-            Quantidade: 1 SMP para pH_agua 6.5\
-            Modo de aplicacao: Incorporado (Obs.: quando a disponibilidade de P e K forem menores do que o teor critico, fazer a adubacao de correcao incorporando fertilizantes apos a calagem)\
+    (bind ?message "")
+    (bind ?n-repl 0)
 
-        ")
+    (if (= ?use-type 1)
+    then
+        (if (< ?organic-matter 1.6)
+        then
+            (bind ?n-repl 160)
+        else
+
+            (if (< ?organic-matter 2.6)
+            then
+                (bind ?n-repl 150)
+            else
+
+                (if (< ?organic-matter 3.6)
+                then
+                    (bind ?n-repl 140)
+                else
+                    (if (< ?organic-matter 4.6)
+                    then
+                        (bind ?n-repl 130)
+                    else
+                        (if (> ?organic-matter 4.6)
+                        then
+                            (bind ?n-repl 120)
+                        )
+                    )
+                )
+            )
+        )
     else
-        (printout t "\
-    Nao necessita correcao de Calagem\
-        ")
+        (if (< ?organic-matter 1.6)
+        then
+            (bind ?n-repl 170)
+        else
+
+            (if (< ?organic-matter 2.6)
+            then
+                (bind ?n-repl 160)
+            else
+
+                (if (< ?organic-matter 3.6)
+                then
+                    (bind ?n-repl 150)
+                else
+                    (if (< ?organic-matter 4.6)
+                    then
+                        (bind ?n-repl 140)
+                    else
+                        (if (> ?organic-matter 4.6)
+                        then
+                            (bind ?n-repl 130)
+                        )
+                    )
+                )
+            )
+        )
     )
+
+    (printout t "
+    Reposicao de nitrogenio:\
+           " ?n-repl " kg de N/ha.\
+           \
+   ")
+
+
 )

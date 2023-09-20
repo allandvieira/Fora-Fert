@@ -182,3 +182,19 @@
     )
     (assert (pk-done))
 )
+
+
+(defrule warm-legumes-n
+    ?f-header-done <- (header-done)
+
+    ?f-forage <- (forage "warm-legumes")
+
+    =>
+
+    (printout t "
+    Nitrogênio:\
+            Deve-se inocular as sementes com o rizóbio específico, se disponível. Para as espécies de estação quente (tropicais) nem sempre há disponibilidade de rizóbio específico, mas por vezes são naturalmente inoculadas por raças nativas. Deve-se utilizar a adubação nitrogenada somente se for constatada a ineficiência da inoculação. Nesse caso, aplicar 20 kg de N/ha, após cada duas utilizações da pastagem.
+\
+   ")
+
+)

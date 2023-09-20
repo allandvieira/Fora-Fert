@@ -177,3 +177,18 @@
     )
     (assert (pk-done))
 )
+
+(defrule cool-legumes-n
+    ?f-header-done <- (header-done)
+
+    ?f-forage <- (forage "cool-legumes")
+
+    =>
+
+    (printout t "
+    Nitrogênio:\
+            Inocular as sementes com rizóbio específico. Optar pela adubação nitrogenada somente se for constatada a ineficiência da inoculação. Nesse caso, aplicar nitrogênio na dose de 20 kg de N/ha, após cada duas utilizações da pastagem.
+\
+   ")
+
+))

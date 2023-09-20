@@ -177,3 +177,82 @@
     )
     (assert (pk-done))
 )
+
+
+(defrule cool-grasses-n
+    ?f-header-done <- (header-done)
+
+    ?f-forage <- (forage "cool-grasses")
+    ?f-organic-matter <- (organic-matter ?organic-matter)
+    ?f-use-type <- (use-type ?use-type)
+
+    =>
+
+    (bind ?message "")
+    (bind ?n-repl 0)
+
+    (if (= ?use-type 1)
+    then
+        (if (< ?organic-matter 1.6)
+        then
+            (bind ?n-repl 160)
+        else
+
+            (if (< ?organic-matter 2.6)
+            then
+                (bind ?n-repl 140)
+            else
+
+                (if (< ?organic-matter 3.6)
+                then
+                    (bind ?n-repl 120)
+                else
+                    (if (< ?organic-matter 4.6)
+                    then
+                        (bind ?n-repl 100)
+                    else
+                        (if (> ?organic-matter 4.6)
+                        then
+                            (bind ?n-repl 80)
+                        )
+                    )
+                )
+            )
+        )
+    else
+        (if (< ?organic-matter 1.6)
+        then
+            (bind ?n-repl 180)
+        else
+
+            (if (< ?organic-matter 2.6)
+            then
+                (bind ?n-repl 160)
+            else
+
+                (if (< ?organic-matter 3.6)
+                then
+                    (bind ?n-repl 140)
+                else
+                    (if (< ?organic-matter 4.6)
+                    then
+                        (bind ?n-repl 120)
+                    else
+                        (if (> ?organic-matter 4.6)
+                        then
+                            (bind ?n-repl 100)
+                        )
+                    )
+                )
+            )
+        )
+    )
+
+    (printout t "
+    Reposicao de nitrogenio:\
+           " ?n-repl " kg de N/ha.\
+           \
+   ")
+
+
+)
