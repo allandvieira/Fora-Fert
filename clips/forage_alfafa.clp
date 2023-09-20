@@ -201,25 +201,4 @@
     (assert (pk-done))
 )
 
-(defrule forage-alfafa-liming
-    ?f-forage <- (forage "alfafa")
-    ?f-ph <- (ph ?ph)
-    ?f-pk <- (pk-done)
-    
-    =>
 
-    (if (< ?ph 6.0)
-    then
-        (printout t "\
-    Recomendacao de calagem: \
-            O calcario deve ser incorporado na camada de 0 a 20 cm. 
-            Quantidade: 1 SMP para pH_agua 6.5\
-            Modo de aplicacao: Incorporado (Obs.: quando a disponibilidade de P e K forem menores do que o teor critico, fazer a adubacao de correcao incorporando fertilizantes apos a calagem)\
-
-        ")
-    else
-        (printout t "\
-    Nao necessita correcao de Calagem\
-        ")
-    )
-)
