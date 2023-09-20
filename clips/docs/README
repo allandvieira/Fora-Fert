@@ -15,3 +15,28 @@ sendo fact-name o nome do fato seguido o valor
 
 
 Essas regras foram escritas para serem usadas em conjunto com a API escrita em python.
+
+
+Os arquivos iniciados com o prefixo 'teste_' sao arquivos de teste, e possui algumas repras para cada tipo de forrageira.
+caso queria fazer alguns testes, modifique os valores das regras, salve o arquivo, e em uma linha de comando (bash ou powershell) com o clips instalado, use o comando:
+clips -f <file-name>
+    
+    Onde <file-name> representa o nome do arquivo de teste
+
+A saida contem algumas mensagens do clis, e a mensagem desejada apos. Algo como:
+
+//Mensagens do clips de carregamento de regras e etc
+(run)
+    // a saida de recomendacao impressa aqui
+(exit)
+
+os valores nos arquivos de testes (como (perene 1) ou (first-planting 1)) sao usados como valores booleanos, onde 0 representa falso e 1 verdadeiro.
+portanto a linha
+(assert (perene 0)) 
+indica que estamos inserindo o fato de que a forrageira nao eh perene (ou seja, anual)
+e a linha 
+(assert (first-planting 1))
+indica o primeiro plantio como verdadeiro
+
+
+
