@@ -42,8 +42,9 @@
 
 
 
-(defrule forage-alfaca
+(defrule forage-alfaca-p
     ?f-forage <- (forage "alfafa")
+    ?f-p-value <- (p-value ?p-value)
 
     =>
 
