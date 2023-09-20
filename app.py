@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify
 import os
 from forafert_app import recommendation_wrapper
 
+def run_clips(facts):
+
+
 app = Flask(__name__)
 
 # Endpoint para a requisição POST
@@ -33,7 +36,7 @@ def get_recommendation():
         formatted_result = wrapper.format_rules_for_clips(data)
 
         # Salve o resultado formatado em um arquivo .clp
-        file_path = "./clips/clips_files/fatosfile.clp"
+        file_path = "./clips/fatosfile.clp"
         try:
         # Abre o arquivo em modo de escrita (ou cria o arquivo se ele não existir)
             with open(file_path, 'w') as file:
@@ -41,6 +44,8 @@ def get_recommendation():
             print("String escrita com sucesso no arquivo:", file_path)
         except IOError as e:
             print("Ocorreu um erro ao escrever no arquivo:", str(e))
+
+        message_return = run_clips(formatted_result)
 
         return jsonify({"message": "Dados formatados e salvos com sucesso"}), 200
     except Exception as e:

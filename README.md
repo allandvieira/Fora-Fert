@@ -8,5 +8,8 @@ Sistema de recomendação de calagem e adubação para forrageiras, utilizando s
 ## Run
     para rodar a api:
     python3 app.py
+    (configurar a porta do servico no cabecalho do arquivo, SERVER_PORT = <num-port>
+    a API usa o modulo flask para responder as requisicoes post, recebendo os parametros.
+    formata os parametros em regras do clips, grava em um arquivo e carrega este arquivo no clips.
+    Entao captura a saida padrao e retorna para o front-end.
 
-    (Obs. A api nao esta funcionando corretamente, pois alguns problemas com o modulo c .so estao com erro!)
