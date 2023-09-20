@@ -47,57 +47,15 @@
 ;;;;;;;)
 ;;;;;;;
 
-(deffunction generate-recommendation (?forage ?soilPLevel ?soilKLevel ?first-planting)
+; break this function in others by kind of forage
+; attr values like phosphorusValue = calcAlfafaP().
+
+(deffunction generate-recommendation (?forage ?soilPLevel ?soilKLevel ?firstPlanting)
     (bind ?phosphorusUnit "kg de P2O5/ha. ")
     (bind ?potassiumUnit "kg de K2O/ha. ")
 
-    (if (eq ?forage "alfafa")
-        then
-        (bind ?phosphorusValue
-            (cond
-                ((eq ?soilPLevel "very_low") 195)
-                ((eq ?soilPLevel "low") 135)
-                ((eq ?soilPLevel "medium") 125)
-                ((eq ?soilPLevel "high") 85)
-                ((eq ?soilPLevel "very_high") 0)
-            )
-        )
-
-        (bind ?potassiumValue
-            (cond
-                ((eq ?soilKLevel "very_low") 330)
-                ((eq ?soilKLevel "low") 290)
-                ((eq ?soilKLevel "medium") 280)
-                ((eq ?soilKLevel "high") 250)
-                ((eq ?soilKLevel "very_high") 0)
-            )
-        )
-
-        (bind ?recommendationMessage "Reposicao de Fósforo: " ?phosphorusValue ?phosphorusUnit "Reposicao de Potássio: " ?potassiumValue ?potassiumUnit)
-    )
     (else
-        (if (eq ?forage "GRAMÍNEAS DE ESTAÇÃO FRIA")
-            then
-            (bind ?phosphorusValue
-                (cond
-                    ((eq ?soilPLevel "very_low") 170)
-                    ((eq ?soilPLevel "low") 110)
-                    ((eq ?soilPLevel "medium") 100)
-                    ((eq ?soilPLevel "high") 60)
-                )
-            )
 
-            (bind ?potassiumValue
-                (cond
-                    ((eq ?soilKLevel "very_low") 140)
-                    ((eq ?soilKLevel "low") 100)
-                    ((eq ?soilKLevel "medium") 90)
-                    ((eq ?soilKLevel "high") 60)
-                )
-            )
-
-            (bind ?recommendationMessage "Reposicao de Fósforo: " ?phosphorusValue ?phosphorusUnit "Reposicao de Potássio: " ?potassiumValue ?potassiumUnit)
-        )
         (else
             (bind ?recommendationMessage "Recomendacao para outros.")
         )
