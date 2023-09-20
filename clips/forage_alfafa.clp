@@ -9,6 +9,26 @@
 
 )
 
+(deffunction n-message()
+    (return "
+    Reposicao de nitrogenio:\
+            Realizar a inoculação das sementes com o rizóbio específico. Fazer a adubação nitrogenada somente se for constatada a ineficiência da inoculação. Nesse caso, aplicar de 20 a 40 kg de N/ha após cada corte, dependendo do desenvolvimento da cultura.\
+    ")
+)
+
+(deffunction s-message()
+    (return "
+    Reposicao de Enxofre\
+            A cada dois anos, priorizar a aplicação de fertilizantes fosfatados que contenham S (como o superfosfato simples) ou outra fonte deste nutriente. A aplicação periódica, a cada dois anos, de 60 a 80 kg de S/ha é suficiente para atender a demanda da cultura. A reposição deste nutriente é também plenamente atendida quando são utilizados adubos orgânicos. No caso da alfafa sob exploração intensiva, a utilização de gesso agrícola pode, além de suprir S, favorecer o aprofundamento das raízes, o que é importante em situações de deficiência hídrica.\
+    ")
+)
+
+(deffunction b-message()
+    (return "
+    Reposicao de Boro\
+            Aplicar via solo, 2,5 kg de B por hectare antes da semeadura, preferencialmente incorporado, repetindo esta dose anualmente, no início da primavera, a lanço em superfície. Por ser uma cultura perene, fontes de B de menor solubilidade podem ser utilizadas.\
+    ")
+)
 
 (defrule forage-alfafa
     ?f-forage <- (forage "alfafa")
@@ -16,6 +36,9 @@
     =>
 
     (printout t (about))
+    (printout t (n-message))
+    (printout t (s-message))
+    (printout t (b-message))
     (assert (header-done))
 )
 
