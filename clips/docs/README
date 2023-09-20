@@ -1,0 +1,17 @@
+## Descricao do sistema clips
+
+O sistema foi escrito em arquivos separados para cada forrageira, seguindo a syntaxe "forage_" + nome da forrageira, de forma a facilitar a edicao/manutencao das regras.
+o arquivo 'main.clp' contem as regras para fertilizacao, (na verdade as regras estao nos 9 arquivos de forrageiras separadamente, mas no arquivo main eh feito o carregamento desses arquivos)
+o arquivo 'limin.clp' contem as regras para calagem
+
+o sistema pode ser rodado separadamente, se desejado (sem a ultilizacao da API). Para tal, eh necessario a instalacao do clips.
+Apos a instalacao, para testar as recomendacoes os 2 arquivos mencionados acima podem ser carregados com os seguintes comandos (dentro do ambiente clips):
+    (load "main.clp")
+    (load "limin.clp")
+
+Com as regras carregadas, basta apenas inserir os fatos desejados da seguinte forma:
+    (assert (fact-name fact-value))
+sendo fact-name o nome do fato seguido o valor
+
+
+Essas regras foram escritas para serem usadas em conjunto com a API escrita em python.
