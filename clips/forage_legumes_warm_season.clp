@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-l-warm()
     (return "
     Leguminosas de estacao quente\
             As leguminosas de estação quente destinam-se, geralmente, à reserva de proteína ou para produção de sementes. O amendoim forrageiro tem sido utilizado com bons resultados em pastejo direto em algumas regiões dos Estados do RS e de SC. Cultivos estremes de leguminosas de estação quente também têm sido utilizados para a recuperação de áreas degradadas, com manejo sob pastejos seletivos.\
@@ -19,7 +19,7 @@
 
     =>
 
-    (printout t (about))
+    (printout t (about-l-warm))
     (printout t (n-message))
     (assert (header-done))
 )

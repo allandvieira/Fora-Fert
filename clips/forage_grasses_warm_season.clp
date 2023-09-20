@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-g-warm()
     (return "
     Gramineas de estacao quante\
         Nesse grupo incluem-se, como espécies anuais, o milheto, o sorgo forrageiro, o capim sudão, o teosinto e o capim papuã; este último pode infestar lavouras, no caso de ser introduzido em rotação com culturas. \
@@ -13,7 +13,7 @@
 
     =>
 
-    (printout t (about))
+    (printout t (about-g-warm))
     (assert (header-done))
 )
 

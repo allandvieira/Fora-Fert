@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-corn()
     (return "
     Milho e sorgo para silagem\
             O milho e o sorgo forrageiro têm sido utilizados para a produção de forragem conservada na forma de silagem, podendo constituir a base alimentar de sistemas produtivos ou utilizada de forma estratégica em sistemas pastoris. De forma geral, o milho apresenta maior produtividade (em regiões com adaptação) e qualidade superior. Por outro lado, pela capacidade de rebrote, algumas variedades de sorgo podem permitir um segundo corte. Em geral, recomenda-se a utilização de práticas de manejo para estas culturas semelhantes às utilizadas em lavouras para grãos, garantindo assim alta produtividade, alta qualidade de forragem e maior rentabilidade.\
@@ -12,7 +12,7 @@
 
     =>
 
-    (printout t (about))
+    (printout t (about-corn))
     (assert (header-done))
 )
 

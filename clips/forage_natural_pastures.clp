@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-nat()
     (return "
     PASTAGENS NATURAIS (NATIVAS OU NATURALIZADAS) \
         As pastagens naturais incluem os “campos nativos” e as pastagens naturalizadas, resultantes da revegetação de áreas previamente utilizadas para outras finalidades (culturas ou mesmo pastagens anuais). A expressão de seu potencial produtivo depende de práticas adequadas de manejo, incluindo a melhoria da fertilidade do solo. Para tanto, é essencial o conhecimento do tipo de pastagem disponível e o potencial de resposta. A caracterização geral dessas formações é difícil devido à ocorrência de um grande número de espécies, muitas vezes representadas por diferentes ecotipos. Do ponto de vista funcional, há uma grande variabilidade na produtividade, tanto no tempo quanto no espaço (Nabinger et al., 2000). No tempo, as variações são determinadas pelas condições meteorológicas. No espaço, a produtividade forrageira está diretamente relacionada às características físicas e químicas e ao relevo dos solos. Os fatores edáficos determinam grandes variações na composição botânica e na produtividade, em função da dominância de algumas espécies, adaptadas às condições predominantes de solo.
@@ -9,7 +9,7 @@ Para a decisão de utilização de áreas sob pastagem natural, em Nabinger et a
 
 )
 
-(deffunction n-message()
+(deffunction n-message-nat()
     (return "
     Reposicao de nitrogenio:\
             O nitrogênio é o principal fator que restringe o potencial produtivo das pastagens naturais. Para essas pastagens, aplicações em cobertura têm apresentado altas respostas produtivas e econômicas, comparáveis às obtidas com pastagens cultivadas de verão. A eficiência de uso de nitrogênio depende da correção das demais deficiências do solo, principalmente dos baixos teores de cálcio, magnésio e fósforo disponível, bem como das condições climáticas e do manejo da pastagem.\
@@ -24,8 +24,8 @@ Para a decisão de utilização de áreas sob pastagem natural, em Nabinger et a
 
     =>
 
-    (printout t (about))
-    (printout t (n-message))
+    (printout t (about-nat))
+    (printout t (n-message-nat))
     (assert (header-done))
 )
 
@@ -195,7 +195,7 @@ Para a decisão de utilização de áreas sob pastagem natural, em Nabinger et a
     
     =>
 
-    (if (= (pr 1))
+    (if (= ?pr 1)
     then
         (printout t "Aplicar a dose total de P e K por ocasiao da semeadura\
         ")

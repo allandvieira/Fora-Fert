@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-l-cool()
     (return "
     Leguminosas de estacao fria:\
             As leguminosas de estação fria são geralmente cultivadas em consorciações; culturas estremes geralmente destinam-se ao pastejo e à produção de sementes ou de feno. \
@@ -15,7 +15,7 @@
 
     =>
 
-    (printout t (about))
+    (printout t (about-l-cool))
     (assert (header-done))
 )
 
@@ -191,4 +191,4 @@
 \
    ")
 
-))
+)

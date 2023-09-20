@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-alfafa()
     (return "
     Sobre a Alfafa:\
         A alfafa pode ser implantada sozinha ou em consorcio com outras especies forrageiras. Ela eh altamente sensivel ha acidez do solo, portanto, a calgem deve ser feita com atencao especial, considerando a quantidade e a profundidade de incorporacao do calcario. Eh crucial realizar um plantio denso e prepararr o solo adequadamente para garantir uma populacao de plantas saudaveis, capar de competir com as ervas daninhas.\
@@ -9,7 +9,7 @@
 
 )
 
-(deffunction n-message()
+(deffunction n-message-alfafa()
     (return "
     Reposicao de nitrogenio:\
             Realizar a inoculação das sementes com o rizóbio específico. Fazer a adubação nitrogenada somente se for constatada a ineficiência da inoculação. Nesse caso, aplicar de 20 a 40 kg de N/ha após cada corte, dependendo do desenvolvimento da cultura.\
@@ -35,8 +35,8 @@
 
     =>
 
-    (printout t (about))
-    (printout t (n-message))
+    (printout t (about-alfafa))
+    (printout t (n-message-alfafa))
     (printout t (s-message))
     (printout t (b-message))
     (assert (header-done))

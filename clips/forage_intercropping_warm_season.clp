@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-int-w()
     (return "
     CONSORCIAÇÕES DE GRAMÍNEAS E DE LEGUMINOSAS DE ESTAÇÃO QUENTE \
         As consorciações de gramíneas e de leguminosas de estação quente podem ser implantadas em preparo convencional ou em sistemas de cultivo com preparo reduzido. A combinação das espécies a serem utilizadas depende do sistema produtivo. As consorciações podem ser formadas por espécies anuais, bienais ou perenes. O manejo da pastagem afeta diretamente sua produtividade e longevidade. São importantes para o manejo o período e a época de descanso, a ressemeadura, a lotação (carga animal), a umidade do solo e a altura de pastejo. Incluem-se, neste grupo, o milheto, o sorgo forrageiro e o teosinto, como gramíneas anuais e a pensacola, o capim-de-rhodes, o capim elefante, o capim colonião, a pangola, a grama bermuda (tifton, coastcross), a setária, as braquiárias, o capim quicuio e a hemártria, como gramíneas perenes. Como leguminosas anuais, incluem-se o feijão miúdo e o labelabe, e como leguminosas perenes o guandu, o desmódio, a leucena, o amendoim forrageiro e a soja perene. \
@@ -8,7 +8,7 @@
 
 )
 
-(deffunction n-message()
+(deffunction n-message-int-w()
     (return "
     Reposicao de nitrogenio:\
             Deve-se inocular as sementes com o rizóbio específico, se disponível. Para as espécies de estação quente (tropicais) nem sempre há disponibilidade de rizóbio específico, mas por vezes são naturalmente inoculadas por raças nativas.  Deve-se utilizar a adubação nitrogenada somente se for constatada a ineficiência da inoculação. Nesse caso, aplicar 20 kg de N/ha por ocasião do perfilhamento da gramínea e 20 kg/ha após cada duas utilizações da pastagem.\
@@ -22,8 +22,8 @@
 
     =>
 
-    (printout t (about))
-    (printout t (n-message))
+    (printout t (about-int-w))
+    (printout t (n-message-int-w))
     (assert (header-done))
 )
 
@@ -192,7 +192,7 @@
     
     =>
 
-    (if (= (pr 1))
+    (if (= ?pr 1)
     then
         (printout t "Fazer a adubacao na epoca da semeadura\
         ")

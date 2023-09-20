@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-g-cool()
     (return "
     Gramineas de estacao Fria:\
         Entre as espécies anuais, incluem-se as aveias branca e preta, o azevém (diploide e tretaplóide), o centeio, o capim lanudo, o triticale, a cevada forrageira e o trigo forrageiro. Entre as espécies perenes incluemse a festuca, a faláris, o dáctilo, a aveia perene e a cevadilha.\
@@ -15,7 +15,7 @@
 
     =>
 
-    (printout t (about))
+    (printout t (about-g-cool))
     (assert (header-done))
 )
 

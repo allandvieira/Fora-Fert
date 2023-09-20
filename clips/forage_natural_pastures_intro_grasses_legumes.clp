@@ -1,4 +1,4 @@
-(deffunction about()
+(deffunction about-nat-int()
     (return "
     PASTAGENS NATURAIS COM INTRODUÇÃO DE GRAMÍNEAS E LEGUMINOSAS \
             O aumento da capacidade de produção de pastagens naturais pode ser obtido com a introdução em sobre-semeadura, cultivo mínimo ou plantio direto, de espécies de inverno acompanhada da melhoria da fertilidade do solo pela calagem e pela adubação. Sempre que possível, deve-se incluir espécie(s) leguminosa(s), visando a melhor qualidade da forragem e à economia de nitrogênio.\
@@ -11,7 +11,7 @@
 
 )
 
-(deffunction n-message()
+(deffunction n-message-nat-int()
     (return "
     Reposicao de nitrogenio:\
             No caso de introdução de apenas leguminosas, fazer a inoculação das sementes com rizóbio específico. Aplicar nitrogênio somente se for constatada a ineficiência da inoculação. 
@@ -28,8 +28,8 @@ Se forem introduzidas apenas gramíneas, adotar as recomendações de nitrogêni
 
     =>
 
-    (printout t (about))
-    (printout t (n-message))
+    (printout t (about-nat-int))
+    (printout t (n-message-nat-int))
     (assert (header-done))
 )
 
@@ -199,7 +199,7 @@ Se forem introduzidas apenas gramíneas, adotar as recomendações de nitrogêni
     
     =>
 
-    (if (= (pr 1))
+    (if (= ?pr 1)
     then
         (printout t "Aplicar a dose total de P e K por ocasiao da semeadura\
         ")
